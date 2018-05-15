@@ -7,7 +7,8 @@
   (txid string)
   (txout_idx integer))
 
-(deftype out_point* () '(or out_point null))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (deftype out_point* () '(or out_point null)))
 
 (defun out_point*-json (obj out)
   (if obj
@@ -15,7 +16,7 @@
       (null-json out)))
 
 (define-struct tx_in
-  (to_spend out-point*)
+  (to_spend out_point*)
   (unlock_sig bytes)
   (unlock_pk bytes)
   (sequence integer))
@@ -53,8 +54,8 @@
          (null (tx_in-to_spend (elt txins 0))))))
 
 (defun transaction-create_coinbase (to-addr value height)
-  (let ((txin (tx-in nil (encode (prin1-to-string height)) nil 0))
-        (txout (tx-out value to-addr)))
+  (let ((txin (tx_in nil (encode (prin1-to-string height)) nil 0))
+        (txout (tx_out value to-addr)))
     (transaction (tx_in-vector txin)
                  (tx_out-vector txout)
                  0)))

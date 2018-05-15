@@ -27,6 +27,11 @@
 (deftype bytes (&optional (size '*))
   `(array (unsigned-byte 8) (,size))) 
 
+(defun bytes (&rest bytes)
+  (make-array `(,(length bytes))
+              :element-type '(unsigned-byte 8)
+              :initial-contents bytes))
+
 (defun bytes-json (obj out)
   (write-string (hex obj) out))
 
