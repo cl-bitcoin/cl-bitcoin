@@ -4,12 +4,12 @@
 (in-package :cl-bitcoin)
 
 (define-struct block
-  (version int)
+  (version integer)
   (prev_block_hash string)
   (merkle_hash string)
-  (timestamp int)
-  (bits int)
-  (nonce int)
+  (timestamp integer)
+  (bits integer)
+  (nonce integer)
   (txns transaction-vector))
 
 (defun block-header (obj &optional nonce)

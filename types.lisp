@@ -33,8 +33,6 @@
 (defun null-json (out)
   (write-string "null" out))
 
-(deftype int () '(signed-byte 32))
-
-(defun int-json (obj out)
-  (declare (type s32 obj))
+(defun integer-json (obj out)
+  (declare (type integer obj))
   (prin1 obj out))

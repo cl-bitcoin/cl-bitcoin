@@ -5,7 +5,7 @@
 
 (define-struct out_point
   (txid string)
-  (txout_idx s32))
+  (txout_idx integer))
 
 (deftype out_point* () '(or out_point null))
 
@@ -18,23 +18,23 @@
   (to_spend out-point*)
   (unlock_sig bytes)
   (unlock_pk bytes)
-  (sequence int))
+  (sequence integer))
 
 (define-vector tx_in)
 
 (define-struct tx_out
-  (value int)
+  (value integer)
   (to_address string))
 
 (define-vector tx_out)
 
 (define-struct unspent_tx_out
-  (value int)
+  (value integer)
   (to_address string)
   (txid string)
-  (txout_idx int)
+  (txout_idx integer)
   (is_coinbase bool)
-  (height int))
+  (height integer))
 
 (defun unspent_tx_out-out_point (obj)
   (out_point (unspent_tx_out-txid obj)
@@ -43,7 +43,7 @@
 (define-struct transaction
   (txins tx_in-vector)
   (txouts tx_out-vector)
-  (locktime int))
+  (locktime integer))
 
 (define-vector transaction)
 
