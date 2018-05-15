@@ -20,5 +20,5 @@
    (:file "sha256" :depends-on ("string"))
    (:file "string" :depends-on ("package"))
    (:file "struct" :depends-on ("string"))
-   (:file "transaction" :depends-on ("params" "sha256" "types"))
+   (:file "transaction" :depends-on ("params" "sha256" "struct" "types"))
    (:file "types" :depends-on ("string"))))
