@@ -10,7 +10,7 @@
   :name "cl-bitcoin"
   :author "Thomas de Grivel <thoxdg@gmail.com>"
   :version "0.1"
-  :description "P2P money"
+  :description "Peer to peer money"
   :depends-on ("babel"
                "ironclad")
   :components
